@@ -4,21 +4,41 @@ canvas.width = 500;
 canvas.height = 500;
 pumpkin = document.getElementById('Pumpkin');
 c.drawImage(pumpkin,0,0,500,500);
-
 canDraw=false;
 
+width=5;
+function changeWidth(num){
+if(width==5&&num<0){
+    alert('This is the minimum brush size.');
+}
+else if(width==25&&num>0){
+    alert('This is the maximum brush size.')
+}
+else{
+    width+=num;
+}
+}
+
+
+url = canvas.toDataURL("image/png");
+download = document.getElementById("canvasDownload");
+download.href=url;
+
 function start(){ // on click, set canDraw to true so it knows when to actually draw
-canDraw=true;
+    canDraw=true;
 }
 
 function end(){ // after letting go of click, set canDraw to false so it knows when to actually stop drawing
-canDraw=false;
+    url = canvas.toDataURL("image/png");
+    download.href=url;
+    canDraw=false;
 c.beginPath(); // reset path each time user lets go of mouse 
 }
 
 function draw(e){
     if(canDraw){
     c.lineTo(e.clientX, e.clientY); // create a line to mouse position 
+    c.lineWidth=width;
     c.stroke();
     c.moveTo(e.clientX,e.clientY);
     }
@@ -27,6 +47,9 @@ function draw(e){
 canvas.addEventListener('mousedown',start); // when click input is active, use start function
 canvas.addEventListener('mouseup',end); // after user lets go of click, use end function
 canvas.addEventListener('mousemove',draw);
+
+
+
 
 
 
