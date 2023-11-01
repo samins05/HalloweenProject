@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas>
+    <canvas id="thisCanvas">
     <img id="Pumpkin" src="pumpkin.png"></img>
     </canvas>
+    <h1>Design your own Pumpkin!</h1>
+    <a id="canvasDownload" href="#" download>Download your Design!</a>
+    <br>
+    <b>Change size of brush:</b>
+    <button onclick="changeWidth(5);">+</button>
+    <button onclick="changeWidth(-5);">-</button>
     <script src="script.js"></script>
-    <button onclick="addThickness();">Add thickness</button>
+
 </body>
 </html>
