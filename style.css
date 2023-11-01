@@ -1,4 +1,14 @@
+body{
+    background-color:black;
+    color:orange;
+}
+
 
 canvas{
 border:1px solid black;
+}
+
+a{
+font-size:30px;
+text-decoration:none;
 }
