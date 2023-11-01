@@ -1,9 +1,9 @@
 canvas = document.querySelector('canvas'); // place canvas from html into canvas variable
 c = canvas.getContext('2d'); // gives access to 2d drawing functions for canvas
-canvas.width = 500;
-canvas.height = 500;
+canvas.width = 400;
+canvas.height = 400;
 pumpkin = document.getElementById('Pumpkin');
-c.drawImage(pumpkin,0,0,500,500);
+c.drawImage(pumpkin,0,0,400,400);
 canDraw=false;
 
 width=5;
@@ -17,6 +17,11 @@ else if(width==25&&num>0){
 else{
     width+=num;
 }
+}
+
+function reset(){
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    c.drawImage(pumpkin,0,0,400,400);
 }
 
 
@@ -47,6 +52,8 @@ function draw(e){
 canvas.addEventListener('mousedown',start); // when click input is active, use start function
 canvas.addEventListener('mouseup',end); // after user lets go of click, use end function
 canvas.addEventListener('mousemove',draw);
+
+
 
 
 
